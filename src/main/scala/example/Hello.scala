@@ -15,6 +15,9 @@ object SafeBot extends TelegramBot with Polling with Commands {
     .getOrElse(Source.fromFile("bot.token").getLines().mkString)
 
   val rng = new Random(System.currentTimeMillis())
+
+  on("/help", "Show help") { implicit msg => _ => reply("No implemented") }
+
   on("/coin", "head or tail") { implicit msg => _ => reply(if (rng.nextBoolean()) "Head!" else "Tail!") }
   on("/real", "real number in [0, 1]") { implicit msg => _ => reply(rng.nextDouble().toString) }
   on("/die", "classic die [1 .. 6]") { implicit msg => _ => reply((rng.nextInt(6) + 1).toString) }
