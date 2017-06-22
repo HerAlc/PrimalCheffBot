@@ -14,21 +14,16 @@ object SafeBot extends TelegramBot with Polling with Commands {
     .envOrNone("BOT_TOKEN")
     .getOrElse(Source.fromFile("bot.token").getLines().mkString)
 
-  val rng = new Random(System.currentTimeMillis())
-  on("/coin", "head or tail") { implicit msg => _ => reply(if (rng.nextBoolean()) "Head!" else "Tail!") }
-  on("/real", "real number in [0, 1]") { implicit msg => _ => reply(rng.nextDouble().toString) }
-  on("/die", "classic die [1 .. 6]") { implicit msg => _ => reply((rng.nextInt(6) + 1).toString) }
-  on("/dice", "throw two classic dice [1 .. 6]") { implicit msg => _ => reply((rng.nextInt(6) + 1) + " " + (rng.nextInt(6) + 1)) }
-  on("/random", "integer in [0, n)") { implicit msg => {
-    case Seq(Extractor.Int(n)) if n > 0 =>
-      reply(rng.nextInt(n).toString)
-    case _ =>
-      reply("Invalid argumentヽ(ಠ_ಠ)ノ")
-  }
-  }
-  on("/choose", "randomly picks one of the arguments") { implicit msg => args =>
-    reply(if (args.isEmpty) "Empty list." else args(rng.nextInt(args.size)))
-  }
+  on("/help", "Show help") { implicit msg => _ => reply("No implemented") }
+  on("/suggestMe", "Suggest some recipe according to your taste") { implicit msg => _ => reply("No implemented") }
+  on("/popular", "Popular recipes") { implicit msg => _ => reply("No implemented") }
+  on("/random", "A random recipe") { implicit msg => _ => reply("No implemented") }
+  on("/byIngredient", "Give recipes containing the given ingredient") { implicit msg => _ => reply("No implemented") }
+  on("/dessert", "Dessert recipes") { implicit msg => _ => reply("No implemented") }
+  on("/dinner", "Recipes suited for dinners") { implicit msg => _ => reply("No implemented") }
+  on("/lunch", "Recipes suited for lunch") { implicit msg => _ => reply("No implemented") }
+  on("/breakfast", "Recipes suited for breakfast") { implicit msg => _ => reply("No implemented") }
+
 }
 
 object Hello extends App {
