@@ -15,10 +15,10 @@ object SafeBot extends TelegramBot with Polling with Commands {
     .getOrElse(Source.fromFile("bot.token").getLines().mkString)
 
   on("/help", "Show help") { implicit msg => _ => reply("No implemented") }
-  on("/suggestMe", "Suggest some recipe according to your taste") { implicit msg => _ => reply("No implemented") }
+  on("/suggestme", "Suggest some recipe according to your taste") { implicit msg => _ => reply("No implemented") }
   on("/popular", "Popular recipes") { implicit msg => _ => reply("No implemented") }
   on("/random", "A random recipe") { implicit msg => _ => reply("No implemented") }
-  on("/byIngredient", "Give recipes containing the given ingredient") { implicit msg => _ => reply("No implemented") }
+  on("/byingredient", "Give recipes containing the given ingredient") { implicit msg => _ => reply("No implemented") }
   on("/dessert", "Dessert recipes") { implicit msg => _ => reply("No implemented") }
   on("/dinner", "Recipes suited for dinners") { implicit msg => _ => reply("No implemented") }
   on("/lunch", "Recipes suited for lunch") { implicit msg => _ => reply("No implemented") }
