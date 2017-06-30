@@ -27,5 +27,5 @@ object SafeBot extends TelegramBot with Polling with Commands {
 }
 
 object Hello extends App {
- // SafeBot.run()
+ SafeBot.run()
 }
