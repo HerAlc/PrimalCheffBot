@@ -15,6 +15,7 @@ object SafeBot extends TelegramBot with Polling with Commands {
     .getOrElse(Source.fromFile("bot.token").getLines().mkString)
 
   on("/help", "Show help") { implicit msg => _ => reply("No implemented") }
+  on("/start", "Welcome Command") {implicit msg => _ => reply("Welcome to PrimalChefBot, this bot will help you find Primal recipes.") }
   on("/suggestme", "Suggest some recipe according to your taste") { implicit msg => _ => reply("No implemented") }
   on("/popular", "Popular recipes") { implicit msg => _ => reply("No implemented") }
   on("/random", "A random recipe") { implicit msg => _ => reply("No implemented") }
